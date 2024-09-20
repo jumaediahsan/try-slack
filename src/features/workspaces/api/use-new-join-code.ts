@@ -2,9 +2,9 @@ import { useCallback, useMemo, useState } from "react";
 import { useMutation } from "convex/react";
 
 import { api } from "../../../../convex/_generated/api";
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
+import { Doc, Id } from '../../../../convex/_generated/dataModel';
 
-type RequestType = {name: string};
+type RequestType = {workspaceId: Id<"workspaces">};
 type ResponseType = Id<"workspaces"> | null;
 
 type Options = {
@@ -14,7 +14,7 @@ type Options = {
   throwError?: boolean;
 }
 
-export const useCreateWorkspace = () => {
+export const useNewJoinCode = () => {
   const [data, setData] = useState<ResponseType>(null);
   const [error, setError] = useState<Error | null>(null);
   const[status, setStatus] = useState<"success" | "error" | "settled" | "pending" | null>(null)
@@ -24,7 +24,7 @@ export const useCreateWorkspace = () => {
   const isError = useMemo(() => status === "error", [status]);
   const isSettled = useMemo(() => status === "settled", [status]);
 
-  const mutation = useMutation(api.workspaces.create);
+  const mutation = useMutation(api.workspaces.newJoinCode);
 
   const mutate = useCallback(async(values: RequestType, options?:Options) => {
     try {
