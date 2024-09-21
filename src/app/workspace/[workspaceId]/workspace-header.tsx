@@ -21,11 +21,11 @@ interface WorkspaceHeaderProps {
 }
 
 export const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
-  const [prerefencesOpen, setPrerefencesOpen ] = useState(false)
-  const [inviteOpen, setInviteOpen ] = useState(false)
+  const [prerefencesOpen, setPrerefencesOpen] = useState(false)
+  const [inviteOpen, setInviteOpen] = useState(false)
   return (
     <>
-      <InviteModal 
+      <InviteModal
         open={inviteOpen}
         setOpen={setInviteOpen}
         name={workspace.name}
@@ -57,15 +57,15 @@ export const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) =>
                 <p className="text-xs text-muted-foreground">active workspace</p>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className="cursor-pointer py-2"
-              onClick={() => setInviteOpen(true)}
-            >
-              Invite people to {workspace.name}
-            </DropdownMenuItem>
             {isAdmin && (
               <>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  className="cursor-pointer py-2"
+                  onClick={() => setInviteOpen(true)}
+                >
+                  Invite people to {workspace.name}
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   className="cursor-pointer py-2"
