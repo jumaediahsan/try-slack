@@ -9,12 +9,12 @@ import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { Id } from "../../../../convex/_generated/dataModel";
 
 const userItemVariants = cva(
-  "flex items-center justify-start gap-1.5 font-normal h-7 px-4 text-sm overflow-hidden",
+  "flex items-center justify-start gap-1.5 font-normal h-7 px-[18px] text-sm overflow-hidden",
   {
     variants: {
       variant: {
         default: "text-[#f9edffcc]",
-        active: "text[#481349] bg-white/90 hover:bg-white/90",
+        active: "text-green bg-white/90 hover:bg-white/90",
       },
     },
     defaultVariants: {

@@ -9,6 +9,7 @@ import { Id } from '../../convex/_generated/dataModel';
 import { GetMessagesReturnType } from "@/features/messages/api/use-get-messages";
 import { useWorkspaceId } from '@/hooks/use-workspace-id';
 import { useCurrentMember } from '@/features/members/api/use-current-member';
+import { ConversationHero } from './conversation-hero';
 
 const TIME_THRESHOLD = 5
 
@@ -93,6 +94,7 @@ export const MessageList = ({
                 hideThreadButton={variant === "thread"}
                 threadCount={message.threadCount}
                 threadImage={message.threadImage}
+                threadName={message.threadName}
                 threadTimestamp={message.threadTimestamp}
               />
             )
@@ -129,6 +131,12 @@ export const MessageList = ({
         <ChannelHero
           name={channelName}
           creationTime={channelCreationTime}
+        />
+      )}
+      {variant === "conversation" && (
+        <ConversationHero
+          name={memberName}
+          image={memberImage}
         />
       )}
     </div>
